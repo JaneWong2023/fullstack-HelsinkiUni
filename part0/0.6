@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant user
+    participant browser
+    participant server
+
+    user->>browser: Writes note and clicks "Save"
+    activate browser
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    Note right of browser:The browser sends a new note to the server
+    activate server
+    server-->>browser:  JSON data of the new note
+    deactivate server
+    deactivate browser
+
+    Note right of browser: The browser updates the note list dynamically without reloading the page
